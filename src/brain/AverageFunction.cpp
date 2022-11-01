@@ -128,6 +128,5 @@ void	AverageFunction::calc_func( void )
 			pow /= 10;
 		}
 		this->_func_calc = true;
-		std::cout << "Diff : " << this->_best_dif << "\n";
 	}
 }

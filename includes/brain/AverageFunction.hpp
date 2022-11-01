@@ -14,7 +14,7 @@ class AverageFunction
 		Function	_func;
 		bool		_func_calc;
 		float		_best_dif;
-		const static float	_accuracy = 1;
+		const static float	_accuracy = 0.1;
 
 		bool	_check_error( void );
 		void	_update_best_func( float pow );

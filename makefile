@@ -1,22 +1,25 @@
-SRC = main.cpp \
+BRAIN_FILE = main.cpp \
 Point.cpp \
 AverageFunction.cpp \
 Structs.cpp \
 Function.cpp
 
-SRC_FOLDER = src/
-INCLUDES_FOLDER = includes
+INCLUDES_FOLDER = -Iincludes/brain \
+-Iincludes/display
+
+SRC = $(addprefix src/brain/, $(BRAIN_FILE))
+
 OBJ_FOLDER = obj
-OBJ= $(SRC:.cpp=.o)
+OBJ= $(BRAIN_FILE:.cpp=.o)
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INCLUDES_FOLDER)
+FLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDES_FOLDER)
 NAME = AverageFunction
 
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) -c $(addprefix $(SRC_FOLDER), $(SRC)) $(FLAGS)
+	$(CC) -c $(SRC) $(FLAGS)
 	$(CC) -o $(NAME) $(OBJ) $(FLAGS)
 	mkdir $(OBJ_FOLDER)
 	mv $(OBJ) $(OBJ_FOLDER)
